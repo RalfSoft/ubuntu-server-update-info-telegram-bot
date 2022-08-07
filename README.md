@@ -11,7 +11,7 @@ This bot will send messages for:
 To start:
 
 * ```git clone https://github.com/RalfSoft/ubuntu-server-update-info-telegram-bot.git```
-* **./install.sh** to install the bot.
+* **cd ubuntu-server-update-info-telegram-bot && sudo chmod 754 install.sh && sudo ./install.sh** to install the bot.
 * check that your Telegram-Bot API-key isn't used by another script.
 * https://api.telegram.org/botYOUR_TELEGRAM_BOT_API_KEY/getUpdates should return:
 
