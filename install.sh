@@ -20,14 +20,14 @@ echo "Installing Python libraries"
 pip3 install -r requirements.txt
 
 if [ -d "/opt/ubuntu-server-update-info-telegram-bot" ]; then
-    rm /opt/ubuntu-server-update-info-telegram-bot
+    rm -r /opt/ubuntu-server-update-info-telegram-bot
     mkdir -p /opt/ubuntu-server-update-info-telegram-bot
 else
     mkdir -p /opt/ubuntu-server-update-info-telegram-bot
 fi
 
 if [ -d "/var/log/ubuntu-server-update-info-telegram-bot" ]; then
-    rm /var/log/ubuntu-server-update-info-telegram-bot
+    rm -r /var/log/ubuntu-server-update-info-telegram-bot
     mkdir -p /var/log/ubuntu-server-update-info-telegram-bot
 else
     mkdir -p /var/log/ubuntu-server-update-info-telegram-bot
