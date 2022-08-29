@@ -36,7 +36,7 @@ fi
 echo "-------------------------------------------------------"
 echo "Copying script..."
 cp bot.py /opt/ubuntu-server-update-info-telegram-bot/bot.py
-cp LICENSE /opt/ubuntu-server-update-info-telegram-bot/bot.py
+cp LICENSE /opt/ubuntu-server-update-info-telegram-bot/LICENSE
 
 echo "Define when the script should be executed using cronjob (no validation use https://crontab.guru/ for help)"
 
@@ -48,10 +48,10 @@ read -p "Cronjob weekday: " cronjob_weekday
 
 if [ -f "/etc/cron.d/ubuntu-server-update-info-telegram-bot-cron" ]; then
     rm /etc/cron.d/ubuntu-server-update-info-telegram-bot-cron
-    cron="$cronjob_minute $cronjob_hour $cronjob_day $cronjob_month $cronjob_weekday python3 /opt/ubuntu-server-update-info-telegram-bot/bot.py"
+    cron="$cronjob_minute $cronjob_hour $cronjob_day $cronjob_month $cronjob_weekday root python3 /opt/ubuntu-server-update-info-telegram-bot/bot.py >> /var/log/ubuntu-server-update-info-telegram-bot/cron.log"
     echo "$cron" > /etc/cron.d/ubuntu-server-update-info-telegram-bot-cron
 else
-    cron="$cronjob_minute $cronjob_hour $cronjob_day $cronjob_month $cronjob_weekday python3 /opt/ubuntu-server-update-info-telegram-bot/bot.py"
+    cron="$cronjob_minute $cronjob_hour $cronjob_day $cronjob_month $cronjob_weekday root python3 /opt/ubuntu-server-update-info-telegram-bot/bot.py /var/log/ubuntu-server-update-info-telegram-bot/cron.log"
     echo "$cron" > /etc/cron.d/ubuntu-server-update-info-telegram-bot-cron
 fi
 
@@ -61,5 +61,5 @@ read -p "Please enter your Telegram chat ID: " telegram_bot_chat_id
 echo TELEGRAM_BOT_API_KEY=$telegram_bot_api_key >> /etc/environment
 echo TELEGRAM_CHAT_ID=$telegram_bot_chat_id >> /etc/environment
 
-echo "Log directory is set to: /var/log/ubuntu-server-update-info-telegram-bot/bot.log"
+echo "Log directory is set to: /var/log/ubuntu-server-update-info-telegram-bot/"
 echo "Successfully installed the ubuntu server update info telegram bot."
