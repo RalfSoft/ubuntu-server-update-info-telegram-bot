@@ -40,7 +40,7 @@ async def check_reboot_required():
             file = open(reboot_required_file, "r")
             data = file.read()
             file.close()
-            send("Reboot is required due to\n" + data)
+            await send("Reboot is required due to\n" + data)
     except Exception as exception:
         await send("Error while checking for reboot required:\n " + str(exception))
 
