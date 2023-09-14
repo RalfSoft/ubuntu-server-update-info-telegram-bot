@@ -4,7 +4,7 @@ from time import sleep
 import asyncio
 import logging, requests, os, sys
 
-logging.basicConfig(filename='/var/log/ubuntu-server-update-info-telegram-bot/bot.log', encoding='utf-8', level=logging.INFO, format='%(levelname)s:%(asctime)s:%(message)s')
+logging.basicConfig(filename='/var/log/ubuntu-server-update-info-telegram-bot/bot.log', encoding='utf-8', level=logging.INFO, format='%(levelname)s;%(asctime)s;%(message)s')
 
 API_KEY = str(os.getenv('TELEGRAM_BOT_API_KEY'))
 CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
